@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AnalogVision Studio</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <div class="topbar">
+          <div>
+            <p class="kicker">AnalogVision</p>
+            <h1>Video aging workspace</h1>
+          </div>
+          <div class="actions">
+            <a class="ghost-link" id="downloadGifLink" hidden>Download GIF</a>
+            <a class="ghost-link" id="downloadLink" hidden>Download MP4</a>
+          </div>
+        </div>
+
+        <form id="convertForm" class="control-grid">
+          <label class="dropzone" id="dropzone">
+            <input id="videoInput" name="video" type="file" accept="video/*">
+            <span class="drop-title">Drop video here</span>
+            <span class="drop-meta" id="fileName">or click to browse</span>
+          </label>
+
+          <div class="panel">
+            <label class="field">
+              <span>Style</span>
+              <select id="style" name="style">
+                <option value="VHS 80s">True VHS</option>
+                <option value="artistic B&W">Noir B&W</option>
+              </select>
+            </label>
+
+            <div class="switches">
+              <label class="switch">
+                <input id="convert43" type="checkbox" checked>
+                <span>Smart 4:3</span>
+              </label>
+              <label class="switch">
+                <input id="degradeAudio" type="checkbox" checked>
+                <span>Degrade audio</span>
+              </label>
+            </div>
+
+            <button class="primary" id="startButton" type="submit">Convert</button>
+          </div>
+        </form>
+
+        <section class="status-panel" id="statusPanel">
+          <div class="meter">
+            <span id="meterFill"></span>
+          </div>
+          <div class="status-row">
+            <p id="statusText">Ready for a video.</p>
+            <p id="timeText">ETA --</p>
+          </div>
+        </section>
+
+        <section class="compare" id="comparePanel" hidden>
+          <div class="tabs" role="tablist">
+            <button class="tab active" type="button" data-view="curtain">Curtain</button>
+            <button class="tab" type="button" data-view="split">Split</button>
+          </div>
+
+          <div class="curtain-view compare-view active" id="curtainView">
+            <div class="curtain-stage" id="curtainStage">
+              <video id="beforeCurtain" muted loop playsinline></video>
+              <div class="after-layer" id="afterLayer">
+                <video id="afterCurtain" muted loop playsinline></video>
+              </div>
+              <input id="curtainSlider" class="curtain-slider" type="range" min="0" max="100" value="50">
+              <div class="curtain-handle" id="curtainHandle"></div>
+              <span class="badge before-badge">Before</span>
+              <span class="badge after-badge">After</span>
+            </div>
+          </div>
+
+          <div class="split-view compare-view" id="splitView">
+            <figure>
+              <video id="beforeSplit" controls playsinline></video>
+              <figcaption>Before</figcaption>
+            </figure>
+            <figure>
+              <video id="afterSplit" controls playsinline></video>
+              <figcaption>After</figcaption>
+            </figure>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

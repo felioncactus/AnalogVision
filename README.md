@@ -1,30 +1,66 @@
-# AnalogVision – VHS & 1970s Film Video Converter
+# AnalogVision
 
-## Project Overview
+AnalogVision is a local web app for converting videos into retro styles and comparing the result against the original.
 
-This project aims to develop a computer vision and image-processing application that converts modern digital videos into authentic retro-style footage inspired by 1980s VHS tapes and 1970s film cameras.
+It supports:
 
-Using Python and free open-source libraries such as :contentReference[oaicite:0]{index=0}, :contentReference[oaicite:1]{index=1}, and :contentReference[oaicite:2]{index=2}, the system will apply physics-based visual and audio transformations without using machine learning training or external APIs.
+- True VHS conversion
+- Noir black-and-white conversion
+- Smart 4:3 formatting
+- Optional degraded audio
+- Before/after curtain view
+- Before/after split view
+- MP4 download
+- Short before/after GIF download
+- Progress and time estimate while converting
 
-## Main Features
+## Demo
 
-- Convert modern videos into:
-  - 1980s VHS style
-  - 1970s film style
-  - Hybrid retro style
+### VHS Conversion
 
-- Optional vintage title intro generation
+![VHS conversion demo](Media/vhs.gif)
 
-- Authentic aspect ratio conversion (4:3)
+### Noir B&W Conversion
 
-- Analog video effects such as:
-  - Film grain
-  - Scanlines
-  - Chromatic aberration
-  - Frame jitter
-  - Color fading
-  - Scratches and dust effects
+![Noir B&W conversion demo](Media/noir.gif)
 
-- Audio degradation to simulate old analog recordings
+## How To Run
 
-- Simple graphical user interface for ease of use
+Install Python 3.10 or newer.
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+Start the app from the project folder:
+
+```bash
+python web_app.py
+```
+
+Open:
+
+```text
+http://127.0.0.1:5000
+```
+
+## How To Use
+
+1. Drop a video into the upload area or click to browse.
+2. Choose `True VHS` or `Noir B&W`.
+3. Toggle Smart 4:3 and degraded audio.
+4. Click `Convert`.
+5. Compare the original and converted video.
+6. Download the MP4 or GIF.
+
+## GitHub Notes
+
+Generated videos and local conversion files are ignored by Git.
+
+GIF files are not ignored, so the demo files in `Media/` can be added to the repository.
+
+## License
+
+MIT

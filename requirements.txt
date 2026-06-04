@@ -1,0 +1,7 @@
+opencv-python>=4.8.0
+numpy>=1.24.0
+moviepy>=1.0.3
+Pillow>=10.0.0
+scipy>=1.10.0
+pydub>=0.25.1
+Flask>=3.0.0
